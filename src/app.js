@@ -12,7 +12,7 @@ db.authenticate()
 
 initModels()
 
-db.sync({ force: true })
+db.sync({ force: false })
   .then(() => console.log('db sync ok'))
   .catch((error) => console.log(error))
 
