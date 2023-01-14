@@ -1,6 +1,7 @@
 const express = require('express')
 const db = require('./utils/database')
 const initModels = require('./models/init.models')
+const userRoutes = require('./routes/users.routes')
 
 //
 const app = express()
@@ -15,6 +16,9 @@ initModels()
 db.sync({ force: false })
   .then(() => console.log('db sync ok'))
   .catch((error) => console.log(error))
+
+//routes
+app.use('/api/v1', userRoutes)
 
 //server
 const PORT = 8000
