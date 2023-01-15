@@ -70,6 +70,17 @@ class CoursesService {
       throw error
     }
   }
+
+  static async updateCourse(id, description) {
+    try {
+      const result = await Courses.update(description, {
+        where: { id },
+      })
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 module.exports = CoursesService

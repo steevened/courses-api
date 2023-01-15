@@ -1,3 +1,4 @@
+const { EmptyResultError } = require('sequelize')
 const CoursesService = require('../services/courses.services')
 
 const getAllCourses = async (req, res) => {
@@ -39,9 +40,23 @@ const getWithCategoriesAndVideos = async (req, res) => {
   }
 }
 
+const updateCourse = async (req, res) => {
+  const { id } = req.params
+  const description = {
+    description: req.body.description,
+  }
+  try {
+    const result = await CoursesService.updateCourse(id, description)
+    res.json(result)
+  } catch (error) {
+    res.status(200).json(error.message)
+  }
+}
+
 module.exports = {
   getAllCourses,
   getCourseById,
   createCourse,
   getWithCategoriesAndVideos,
+  updateCourse,
 }
