@@ -45,14 +45,23 @@ class CoursesService {
     try {
       const result = await Courses.findOne({
         where: { id },
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
+        },
         include: [
           {
             model: Categories,
-            as: 'category',
+            as: 'categories',
+            attributes: {
+              exclude: ['createdAt', 'updatedAt', 'courseId', 'course_id'],
+            },
           },
           {
             model: Videos,
-            as: 'video',
+            as: 'videos',
+            attributes: {
+              exclude: ['createdAt', 'updatedAt', 'courseId', 'course_id'],
+            },
           },
         ],
       })
