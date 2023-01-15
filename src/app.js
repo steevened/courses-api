@@ -3,6 +3,8 @@ const db = require('./utils/database')
 const initModels = require('./models/init.models')
 const userRoutes = require('./routes/users.routes')
 const coursesRoutes = require('./routes/courses.routes')
+const videosRoutes = require('./routes/videos.routes')
+const categoriesRoutes = require('./routes/categories.routes')
 
 //
 const app = express()
@@ -22,6 +24,8 @@ db.sync({ force: false })
 //routes
 app.use('/api/v1', userRoutes)
 app.use('/api/v1', coursesRoutes)
+app.use('/api/v1', videosRoutes)
+app.use('/api/v1', categoriesRoutes)
 
 //server
 const PORT = 8000
