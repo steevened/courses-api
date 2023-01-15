@@ -14,7 +14,7 @@ class CoursesService {
     }
   }
 
-  static async getUserById(id) {
+  static async getCourseById(id) {
     try {
       const result = await Courses.findOne({
         where: { id },

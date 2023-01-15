@@ -6,6 +6,7 @@ const coursesRoutes = require('./routes/courses.routes')
 
 //
 const app = express()
+app.use(express.json())
 
 //db connection
 db.authenticate()

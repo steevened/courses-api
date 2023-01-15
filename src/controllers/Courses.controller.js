@@ -9,10 +9,10 @@ const getAllCourses = async (req, res) => {
   }
 }
 
-const getUserById = async (req, res) => {
+const getCourseById = async (req, res) => {
   const { id } = req.params
   try {
-    const result = await CoursesService.getUserById(id)
+    const result = await CoursesService.getCourseById(id)
     res.json(result)
   } catch (error) {
     res.status(400).json(error.message)
@@ -21,5 +21,5 @@ const getUserById = async (req, res) => {
 
 module.exports = {
   getAllCourses,
-  getUserById,
+  getCourseById,
 }
