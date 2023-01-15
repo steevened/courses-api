@@ -21,12 +21,21 @@ const getCourseById = async (req, res) => {
 
 const createCourse = async (req, res) => {
   const body = req.body
-  const { id } = req.params
   try {
-    const result = await CoursesService.createCourse(body, id)
+    const result = await CoursesService.createCourse(body)
     res.json(result)
   } catch (error) {
-    res.status(200).json(error.message)
+    res.status(400).json(error.message)
+  }
+}
+
+const getWithCategoriesAndVideos = async (req, res) => {
+  const { id } = req.params
+  try {
+    const result = await CoursesService.getWithCategoriesAndVideos(id)
+    res.json(result)
+  } catch (error) {
+    res.satatus(400).json(error.message)
   }
 }
 
@@ -34,4 +43,5 @@ module.exports = {
   getAllCourses,
   getCourseById,
   createCourse,
+  getWithCategoriesAndVideos,
 }
