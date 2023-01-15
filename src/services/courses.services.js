@@ -1,4 +1,6 @@
 const Courses = require('../models/courses.models')
+const userCorses = require('../models/userCourses.model')
+const Users = require('../models/users.models')
 
 class CoursesService {
   static async getAllCourses() {
@@ -23,6 +25,19 @@ class CoursesService {
         },
       })
       return result
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async createCourse(body, id) {
+    try {
+      const course = await Courses.create(body)
+      await userCorses.create({
+        userId: id,
+        courseId: course.id,
+      })
+      return course
     } catch (error) {
       throw error
     }

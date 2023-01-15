@@ -85,6 +85,19 @@ class UserService {
       throw error
     }
   }
+
+  static async createUserCourse(id, body) {
+    try {
+      const course = await Courses.create(body)
+      await userCorses.create({
+        userId: id,
+        courseId: course.id,
+      })
+      return course
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 module.exports = UserService
