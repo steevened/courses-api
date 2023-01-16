@@ -9,7 +9,7 @@ const initModels = () => {
   userCourses.belongsTo(Users, { as: 'user', foreignKey: 'user_id' })
   //
   Courses.hasMany(userCourses, { as: 'course', foreignKey: 'course_id' })
-  userCourses.belongsTo(Courses, { as: 'courses', foreignKey: 'course_id' })
+  userCourses.belongsTo(Courses, { as: 'course', foreignKey: 'course_id' })
   //
   Categories.belongsTo(Courses, { as: 'courses', foreignKey: 'course_id' })
   Courses.hasMany(Categories, { as: 'categories', foreignKey: 'course_id' })
