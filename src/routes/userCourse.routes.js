@@ -1,9 +1,9 @@
-// const { Router } = require('express')
+const { Router } = require('express')
 
-// const { addCoursetoUser } = require('../controllers/UserCourse.controller')
+const { getUserCourses } = require('../controllers/UserCourse.controller')
 
-// const router = Router()
+const router = Router()
 
-// router.post('/users/:idUser/course/:idCourse', addCoursetoUser)
+router.get('/user-courses', getUserCourses)
 
-// module.exports = router
+module.exports = router

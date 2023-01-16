@@ -5,6 +5,7 @@ const userRoutes = require('./routes/users.routes')
 const coursesRoutes = require('./routes/courses.routes')
 const videosRoutes = require('./routes/videos.routes')
 const categoriesRoutes = require('./routes/categories.routes')
+const userCourseRoutes = require('./routes/userCourse.routes')
 
 //
 const app = express()
@@ -26,6 +27,7 @@ app.use('/api/v1', userRoutes)
 app.use('/api/v1', coursesRoutes)
 app.use('/api/v1', videosRoutes)
 app.use('/api/v1', categoriesRoutes)
+app.use('/api/vi', userCourseRoutes)
 
 //server
 const PORT = 8000

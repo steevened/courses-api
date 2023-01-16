@@ -1,10 +1,12 @@
-// const userCorses = require('../services/userCourses.services')
+const userCorsesServices = require('../services/userCourses.services')
 
-// const addCoursetoUser = async (req, res) => {
-//   const { idUser, idCourse } = req.params
-//   try {
-//     const result = await userCourse.addCoursetoUser(idCourse)
-//   } catch (error) {
-//     res.status(200).json(error.message)
-//   }
-// }
+const getUserCourses = async (req, res) => {
+  try {
+    const result = await userCorsesServices.getUserCourses()
+    res.json(result)
+  } catch (error) {
+    res.status(400).json(error.message)
+  }
+}
+
+module.exports = { getUserCourses }
