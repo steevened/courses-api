@@ -27,7 +27,7 @@ app.use('/api/v1', userRoutes)
 app.use('/api/v1', coursesRoutes)
 app.use('/api/v1', videosRoutes)
 app.use('/api/v1', categoriesRoutes)
-app.use('/api/vi', userCourseRoutes)
+app.use('/api/v1', userCourseRoutes)
 
 //server
 const PORT = 8000

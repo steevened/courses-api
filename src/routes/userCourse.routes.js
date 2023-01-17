@@ -1,9 +1,13 @@
 const { Router } = require('express')
 
-const { getUserCourses } = require('../controllers/UserCourse.controller')
+const {
+  getUserCourses,
+  postUserCourses,
+} = require('../controllers/UserCourse.controller')
 
 const router = Router()
 
-router.get('/user-courses', getUserCourses)
+router.get('/usercourses', getUserCourses)
+router.post('/usercourses', postUserCourses)
 
 module.exports = router

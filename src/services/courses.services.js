@@ -81,6 +81,34 @@ class CoursesService {
       throw error
     }
   }
+
+  static async getAllCourseRelations() {
+    try {
+      const result = await Courses.findAll({
+        include: [
+          {
+            model: Categories,
+            as: 'categories',
+          },
+          {
+            model: Videos,
+            as: 'videos',
+          },
+          {
+            model: userCorses,
+            as: 'course',
+            include: {
+              model: Users,
+              as: 'user',
+            },
+          },
+        ],
+      })
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 module.exports = CoursesService

@@ -38,6 +38,15 @@ class userCorsesServices {
       throw error
     }
   }
+
+  static async postUserCourses(body) {
+    try {
+      const result = await userCorses.create(body)
+      return result
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 module.exports = userCorsesServices

@@ -53,10 +53,20 @@ const updateCourse = async (req, res) => {
   }
 }
 
+const getAllCourseRelations = async (req, res) => {
+  try {
+    const result = await CoursesService.getAllCourseRelations()
+    res.json(result)
+  } catch (error) {
+    res.status(400).json(error.message)
+  }
+}
+
 module.exports = {
   getAllCourses,
   getCourseById,
   createCourse,
   getWithCategoriesAndVideos,
   updateCourse,
+  getAllCourseRelations,
 }
